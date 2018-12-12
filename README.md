@@ -17,3 +17,6 @@ a trivial example of how to run a glmm (logistic) using `lme4::glmer`
 ### logit\_speed\_test.R
 i was curious if the different ways of implementing logit and invlogit made a difference for speed in R. looks like `exp` is expensive.
 
+### recursive\_copy.sh
+i can never remember the syntax. also this works on macos.
+
