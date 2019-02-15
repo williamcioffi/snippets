@@ -1,0 +1,35 @@
+# ctmm test
+
+working through some ctmm examples
+
+```{r setup}
+library(ctmm)
+data("buffalo")
+```
+
+look at buffalo 1. i guess it is named cilla
+
+```{r b1}
+b1 <- buffalo[[1]]
+plot(b1)
+```
+
+cariogram for cilla
+
+```{r vario}
+b1.vg <- variogram(b1)
+plot(b1.vg)
+
+# zoom
+plot(b1.vg, fraction = 0.005)
+```
+
+fit?
+```{r}
+# have to run this inside rstudio to move the sliders
+variogram.fit(b1.vg)
+```
+
+```{r fit}
+fit <- ctmm.select(b1, CTMM=GUESS, verbose = TRUE)
+```
