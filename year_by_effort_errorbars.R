@@ -38,7 +38,8 @@ plot(
 	type = 'n', # don't plot anything
 	xlab = "", # no xlabel because it will be self explanatory
 	ylab = "num sightings / transect",
-	xaxt = 'n' # skip the xaxis we'll draw it ourselves
+	xaxt = 'n', # skip the xaxis we'll draw it ourselves
+	xlim = c(5.75, 8.25) # just some padding on the edges
 )
 
 # add in the error bars first
