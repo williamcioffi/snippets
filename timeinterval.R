@@ -1,26 +1,33 @@
 ###
 # timeinterval proof of concept
 
-# helper function
+# required helper function
 matchtimes <- function(t1, t2) {
   # t1, t2 are numeric
   findInterval(t1, c(-Inf, head(t2, -1)) + c(0, diff(t2)/2))
 }
 
-# x1, x2 are inputs
-# must be increasing numeric vectors
-x1 <- c(1, 5, 7, 9.2234, 105)
-x2 <- c(99, 99.5, 99.7, 100)
+# the candidate
+timeinterval <- function(t1, t2) {
+  # t1, t2 must be increasing numeric
+  t2prime <- t2[matchtimes(t1, t2)]
+  t1prime <- t1[matchtimes(t2, t1)]
+  st <- min(t1prime[1], t2prime[1])
+  en <- min(t1prime[length(t1prime)], t2prime[length(t2prime)])
+  
+  list(start = st, end = en)
+}
 
-# another one to try
-# x1 <- 1:10
-# x2 <- 5:10 + .5
 
-x2prime <- x2[matchtimes(x1, x2)]
-x1prime <- x1[matchtimes(x2, x1)]
-st <- min(x1prime[1], x2prime[1])
-en <- min(x1prime[length(x1prime)], x2prime[length(x2prime)])
 
-st
-en
+# test it
+a <- c(1, 5, 7, 9.2234, 105)
+b <- c(99, 99.5, 99.7, 100)
+# correct answer: [99, 100]
+timeinterval(a, b)
 
+# another test
+a <- 1:10
+b <- 5:10 + .5
+# correct answer [5.5, 10]
+timeinterval(a, b)
