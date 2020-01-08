@@ -23,13 +23,20 @@ timeinterval <- function(t1, t2) {
 ## test it
 ##
 
+# test 1
 a <- c(1, 5, 7, 9.2234, 105)
 b <- c(99, 99.5, 99.7, 100)
 # correct answer: [99, 100]
 timeinterval(a, b)
 
-# another test
+# test 2
 a <- 1:10
 b <- 5:10 + .5
 # correct answer [5.5, 10]
+timeinterval(a, b)
+
+# test 3
+a <- 5:10
+b <- c(1, 3, 5.5)
+# correct answer [5, 5.5]
 timeinterval(a, b)
