@@ -19,8 +19,10 @@ timeinterval <- function(t1, t2) {
 }
 
 
+##
+## test it
+##
 
-# test it
 a <- c(1, 5, 7, 9.2234, 105)
 b <- c(99, 99.5, 99.7, 100)
 # correct answer: [99, 100]
